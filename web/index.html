@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="Logincss.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+
+    <body>
+
+        <section class="side">
+
+        </section>
+
+        <section class="main">
+
+            <div class="login-container">
+                <p class="title">Welcome Back!</p>
+                <div class="seperator"></div>
+                <p class="wel-message">Please provide login credentials</p>
+                <form action="LoginAuth"  onsubmit="return validate()" class="login-form" method="POST">
+                    <span id="username" class="text-danger"> </span>
+                    <div class="form-control">
+                        <!-- <p class="text">Username</p> -->
+                        <input type="text" placeholder="Username" id="user" name="user" autocomplete="off">
+                        <i class="fa fa-user" ></i>
+                    </div>
+                    <span id="password" class="text-danger"> </span>
+                    <div class="form-control">
+                        <!-- <p class="text">Password</p> -->
+                        <input type="password" placeholder="Password" id="pass" name="pass" autocomplete="off">
+                        <i class="fa fa-lock" ></i>
+                    </div>
+                    <div class="forgot">Forgot Password?</div>
+                    <div class="Sign-in"><a href="SignIn.jsp">Sign In</a></div>
+                    <button  class="submit">Login</button>
+
+                </form>
+            </div>
+
+        </section>
+
+        <script>
+
+            function validate() {
+                var name = document.getElementById("user").value;
+                var pass = document.getElementById("pass").value;
+
+                if (name == "") {
+                    document.getElementById("username").innerHTML = " **Please fill the Username";
+                    return false;
+                }
+                if (name.length < 2 || name.length > 20) {
+                    document.getElementById("username").innerHTML = " **Username must be greater than 2 character and less than 20";
+                    return false;
+                }
+                if (!isNaN(name)) {
+                    document.getElementById("username").innerHTML = " **Username must be character";
+                    return false;
+                }
+                if (pass == "") {
+                    document.getElementById("password").innerHTML = " **Please fill the Password";
+                    return false;
+                }
+                if (pass.length < 6) {
+                    document.getElementById("password").innerHTML = " **Password must be greater than 6 character";
+                    return false;
+                }
+
+            }
+
+        </script>
+
+    </body>
+
+</html>
